@@ -57,6 +57,11 @@ export async function fetchLatestInvoices() {
 
 export async function fetchCardData() {
   noStore();
+  // Artificially delay a response for test purposes.
+  // remove for production :)
+  console.log('Fetching invoices data...');
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   try {
     // multiple queries in parallel with JS.
     const invoiceCountPromise = sql`SELECT COUNT(*) FROM invoices`;
