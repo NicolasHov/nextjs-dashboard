@@ -15,9 +15,8 @@ export async function fetchRevenue() {
   noStore(); // Add noStore() here prevent the response from being cached. This is equivalent to in fetch(..., {cache: 'no-store'}).
 
   try {
-    // Artificially delay a response for demo purposes.
-    // Don't do this in production :)
-
+    // Artificially delay a response for test purposes.
+    // remove for production :)
     console.log('Fetching revenue data...');
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
@@ -33,6 +32,11 @@ export async function fetchRevenue() {
 export async function fetchLatestInvoices() {
   noStore();
   try {
+    // Artificially delay a response for test purposes.
+    // remove for production :)
+    console.log('Fetching invoices data...');
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
     const data = await sql<LatestInvoiceRaw>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
       FROM invoices
